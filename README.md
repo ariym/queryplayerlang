@@ -1,6 +1,8 @@
 # qpl – queryplayerlangauge
 
-## TagType
+## Data Types
+
+### TagType
 
 - name
 - description
@@ -14,19 +16,19 @@ tagtype = {
     name: "transcript",
     description: "diarized speech from whisperx",
     schema: {
+        label: primitive | @tagtype_name // @ signifies tagtype name
         speech: string,
-        speaker: string
+        speaker: speaker
     }
 }
 ```
 
-## Tag
+### Tag
 
-Instance of a TagType.
+instance of a TagType.
 
 - tagtype: tagtype_name
 - body: matches tagtype schema
-- segment: segment_id
 - label: optional for user to specify something
 
 Example:
@@ -42,13 +44,14 @@ tagtype = {
 }
 ```
 
-## Segment
+### Segment
 
-Tags use Segments for storing file and start/end times. A segment itself does not include any information about the tags that reference it.
+Context for a tag.
 
 - filePath
 - start: timestamp in seconds
 - end: timestamp in seconds
+- tag
 
 Example:
 
@@ -59,3 +62,8 @@ tagtype = {
     end: 39
 }
 ```
+
+## Data Examples
+
+TagTypes:
+* speaker
