@@ -1,0 +1,18 @@
+// every keyword is working on top of 'segment'
+// how you specify what segment it is (tag or tagtype or segment type) is not relevant to the main space
+
+// double quotes " is for exact match
+// single quotes ' is for semantic match
+
+// filter include is expecting tag related search queries
+filter include[
+    'Joey Diaz', // includes results from all possible tagtypes unless you specify (tagtype.speaker, tagtype.topic, etc.)
+    
+    transcript 'food', // equivalent of search through all segmenttype.transcript bodies for anything semantically related to food
+]
+
+// at this point in the file, every Segment that includes tags to these criteria will play in the order that the segments were added to the database
+
+order {
+    'laugh' ascending // all tags where laugh is ascendingg
+}
